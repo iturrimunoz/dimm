@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import FloatingDoctorButton from './components/FloatingDoctorButton';
+import Diagnostico from './pages/Diagnostico';
+import Testimonios from './pages/Testimonios';
+import Nosotros from './pages/Nosotros';
 import './App.css';
 
 function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header className={scrolled ? 'scrolled' : ''} />
+      <main>
+        <section id="inicio" className="hero-section">
+          <h1>Bienvenido a Theranos</h1>
+          <p>Tu solución en análisis clínicos</p>
+          <h1>Bienvenido a Theranos</h1>
+          <p>Tu solución en análisis clínicos</p>
+        </section>
+        
+        {/* Aquí irían las otras secciones como Servicios */}
+        
+        <section id="diagnostico">
+          <Diagnostico />
+        </section>
+
+        <section id="testimonios">
+          <Testimonios />
+        </section>
+
+        <section id="nosotros">
+          <Nosotros />
+        </section>
+
+        {/* Aquí iría la sección de Contacto */}
+      </main>
+      <Footer />
+      <FloatingDoctorButton />
     </div>
   );
 }

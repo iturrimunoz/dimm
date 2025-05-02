@@ -1,0 +1,517 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(90deg, #003366 0%, #00b4d8 100%);
+  backdrop-filter: blur(8px);
+  transition: 
+    background 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: box-shadow, transform;
+  box-shadow: none;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.header:hover::before {
+  opacity: 1;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 56px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  margin-right: 1.2rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.logo-img:hover {
+  transform: scale(1.28) rotate(-4deg);
+  box-shadow: 0 8px 32px 0 rgba(0,180,216,0.25), 0 0 0 8px rgba(0,180,216,0.08);
+  filter: drop-shadow(0 4px 16px rgba(0,180,216,0.25));
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #00c6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.logo h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00c6ff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.logo h1:hover::after {
+  transform: scaleX(1);
+}
+
+.logo h1:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00c6ff 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: 
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+/* Gradiente animado de fondo al hacer hover */
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, #00b4d8, #0072ff, #ffb703, #00b4d8);
+  background-size: 300% 100%;
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s, background-position 0.7s;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a:focus::before {
+  opacity: 1;
+  background-position: 100% 0;
+  animation: gradientMove 1.2s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Subrayado animado */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00b4d8, #ffb703);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0,180,216,0.15);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+  width: 70%;
+}
+
+/* Efecto de resplandor y sombra al hover */
+.nav-menu a:hover,
+.nav-menu a:focus {
+  color: #003366;
+  box-shadow: 0 4px 24px 0 rgba(0,180,216,0.18), 0 0 0 6px rgba(0,180,216,0.10);
+  text-shadow: 0 0 12px #00b4d8, 0 0 2px #fff;
+  background: rgba(255,255,255,0.10);
+  outline: none;
+}
+
+/* Estado activo */
+.nav-menu a.active {
+  background: linear-gradient(90deg, #00b4d8 0%, #ffb703 100%);
+  color: #003366;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.15);
+}
+
+/* Efecto de brillo al hover */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.nav-menu a:hover {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Efecto de pulso al hover */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 198, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 255, 0);
+  }
+}
+
+.nav-menu a:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Ajustes para el estado scrolled */
+.header.scrolled .nav-menu a::before {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 198, 255, 0.2),
+    rgba(0, 114, 255, 0.2)
+  );
+}
+
+.header.scrolled .nav-menu a:hover {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Efectos responsive */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .nav-menu a::after {
+    bottom: 16px;
+  }
+}
+
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+  position: relative;
+  margin-left: auto; /* Empuja el contenedor hacia la derecha */
+  margin-right: 1rem;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Input de búsqueda con efecto de transición */
+.search-input {
+  width: 0;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  visibility: hidden;
+  outline: none;
+}
+
+/* Estado activo del input de búsqueda */
+.search-box.active .search-input {
+  width: 250px;
+  padding: 0 45px 0 20px;
+  opacity: 1;
+  visibility: visible;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Placeholder del input */
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Botón de búsqueda */
+.search-button {
+  position: absolute;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* Icono de búsqueda */
+.search-button i {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover en el botón de búsqueda */
+.search-button:hover i {
+  transform: scale(1.1);
+  color: #00c6ff;
+}
+
+/* Efecto de brillo en el input activo */
+.search-box.active .search-input:focus {
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.2);
+  border-color: rgba(0, 198, 255, 0.4);
+}
+
+/* Animación de aparición */
+@keyframes searchAppear {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.search-box.active .search-input {
+  animation: searchAppear 0.3s ease forwards;
+}
+
+/* Estilos para el estado scrolled */
+.header.scrolled .search-input {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.header.scrolled .search-button {
+  color: #fff;
+}
+
+.header.scrolled .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .search-container {
+    position: fixed;
+    right: 60px; /* Espacio para el botón de menú */
+  }
+
+  .search-box.active .search-input {
+    width: 200px;
+  }
+}
+
+/* Efectos de scroll */
+.header.scrolled {
+  background: rgba(0, 32, 76, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 180, 216, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+  transform: translateY(8px) scale(1.01);
+  border-radius: 0 0 18px 18px;
+}
+
+.header.scrolled::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Animación de partículas brillantes */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: sparkle 4s infinite;
+  opacity: 0.1;
+}
+
+/* Animación de entrada para elementos del menú */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-menu ul li {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.nav-menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu ul li:nth-child(2) { animation-delay: 0.2s; }
+.nav-menu ul li:nth-child(3) { animation-delay: 0.3s; }
+.nav-menu ul li:nth-child(4) { animation-delay: 0.4s; }
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-icon span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.menu-icon:hover span {
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 50%, #00c6ff 100%);
+}
+
+.header.scrolled .menu-icon span {
+  background: linear-gradient(90deg, #333 0%, #0072ff 50%, #00c6ff 100%);
+}
+
+.header.scrolled .menu-icon:hover span {
+  background: linear-gradient(90deg, #0072ff 0%, #00c6ff 50%, #0072ff 100%);
+}
+
+/* Ajustes para el texto del menú cuando está scrolled */
+.header.scrolled .nav-menu a {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled .nav-menu a:hover {
+  color: #00c6ff;
+  text-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+/* Ajustes para el logo cuando está scrolled */
+.header.scrolled .logo h1 {
+  background: linear-gradient(135deg, #ffffff 0%, #00c6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .header.scrolled {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu {
+    background: rgba(0, 32, 76, 0.95);
+  }
+
+  .header.scrolled .nav-menu {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+  }
+}
