@@ -27,9 +27,9 @@ function App() {
       <Header className={scrolled ? 'scrolled' : ''} />
       <main>
         <section id="inicio" className="hero-section">
-          <h1>Bienvenido a Theranos</h1>
+          <h1>Bienvenido a DIMM</h1>
           <p>Tu solución en análisis clínicos</p>
-          <h1>Bienvenido a Theranos</h1>
+          <h1>Bienvenido a DIMM</h1>
           <p>Tu solución en análisis clínicos</p>
         </section>
         
