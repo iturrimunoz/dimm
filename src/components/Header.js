@@ -6,7 +6,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState('inicio');
   const searchInputRef = useRef(null);
   const searchContainerRef = useRef(null);
 
@@ -27,25 +26,24 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
 
+    // Evita el scroll del body cuando el menú está abierto en móvil
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [isMenuOpen]);
 
-  const handleLinkClick = (section) => {
-    setActiveLink(section);
-    setIsMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
     if (!isSearchOpen && searchInputRef.current) {
-      // Enfoca el input cuando se abre
       setTimeout(() => {
         searchInputRef.current.focus();
       }, 100);
@@ -54,10 +52,12 @@ const Header = () => {
 
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
-      // Implementar lógica de búsqueda aquí
       console.log('Buscando:', e.target.value);
     }
   };
+
+  // Cierra el menú al hacer click en un enlace (en móvil)
+  const handleLinkClick = () => setIsMenuOpen(false);
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -65,18 +65,16 @@ const Header = () => {
         <div className="logo">
           <img src={logoDimm} alt="Logo Dimm0bolivia" className="logo-img" />
         </div>
-        
         <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#diagnostico">Diagnóstico</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#inicio" onClick={handleLinkClick}>Inicio</a></li>
+            <li><a href="#servicios" onClick={handleLinkClick}>Servicios</a></li>
+            <li><a href="#diagnostico" onClick={handleLinkClick}>Diagnóstico</a></li>
+            <li><a href="#testimonios" onClick={handleLinkClick}>Testimonios</a></li>
+            <li><a href="#nosotros" onClick={handleLinkClick}>Nosotros</a></li>
+            <li><a href="#contacto" onClick={handleLinkClick}>Contacto</a></li>
           </ul>
         </nav>
-
         <div className="search-container" ref={searchContainerRef}>
           <div className={`search-box ${isSearchOpen ? 'active' : ''}`}>
             <input
@@ -95,7 +93,6 @@ const Header = () => {
             </button>
           </div>
         </div>
-
         <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span></span>
           <span></span>

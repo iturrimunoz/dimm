@@ -14,22 +14,22 @@ const FloatingDoctorButton = () => {
         <div className="doctor-avatar">
           <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Dr. Principal" />
         </div>
-        <span className="doctor-name">Dr. Principal</span>
+        <span className="doctor-name">Dr. Hans Bowles</span>
       </button>
 
       <div className="doctor-info">
         <div className="info-header">
           <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Dr. Principal" />
           <div className="header-text">
-            <h3>Dr. Juan Pérez</h3>
-            <p>Médico Especialista</p>
+            <h3>Dr. Hans Bowles</h3>
+            <p>Gerente Médico</p>
           </div>
         </div>
 
         <div className="info-content">
           <div className="info-item">
             <i className="fas fa-graduation-cap"></i>
-            <span>Especialidad: Cardiología</span>
+            <span>Especialidad: Diagnostico por Imágenes</span>
           </div>
           <div className="info-item">
             <i className="fas fa-clock"></i>
@@ -37,11 +37,11 @@ const FloatingDoctorButton = () => {
           </div>
           <div className="info-item">
             <i className="fas fa-phone"></i>
-            <span>Teléfono: +123 456 7890</span>
+            <span>Teléfono: (+591) 750-06874 </span>
           </div>
           <div className="info-item">
             <i className="fas fa-envelope"></i>
-            <span>Email: dr.juan@theranos.com</span>
+            <span>Email: dr.bowles-gerentemedico@dimm-bolivia.com</span>
           </div>
         </div>
 
