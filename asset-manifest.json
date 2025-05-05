@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/dimm-app/static/css/main.8da73120.css",
+    "main.js": "/dimm-app/static/js/main.3c2c952f.js",
+    "static/js/453.98c49f01.chunk.js": "/dimm-app/static/js/453.98c49f01.chunk.js",
+    "static/media/LOGOS DIMM-03.png": "/dimm-app/static/media/LOGOS DIMM-03.01e9c80586d443248c55.png",
+    "index.html": "/dimm-app/index.html",
+    "main.8da73120.css.map": "/dimm-app/static/css/main.8da73120.css.map",
+    "main.3c2c952f.js.map": "/dimm-app/static/js/main.3c2c952f.js.map",
+    "453.98c49f01.chunk.js.map": "/dimm-app/static/js/453.98c49f01.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8da73120.css",
+    "static/js/main.3c2c952f.js"
+  ]
+}
