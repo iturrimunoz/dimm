@@ -5,6 +5,7 @@ import FloatingDoctorButton from './components/FloatingDoctorButton';
 import Diagnostico from './pages/Diagnostico';
 import Testimonios from './pages/Testimonios';
 import Nosotros from './pages/Nosotros';
+import Contacto from './pages/Contacto';
 import './App.css';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
+      const isScrolled = window.scrollY > 60;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
@@ -45,6 +46,10 @@ function App() {
 
         <section id="nosotros">
           <Nosotros />
+        </section>
+
+        <section id="contacto">
+          <Contacto />
         </section>
 
         {/* Aquí iría la sección de Contacto */}

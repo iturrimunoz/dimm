@@ -28,11 +28,11 @@
     transparent 100%
   );
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.5s ease;
 }
 
 .header:hover::before {
-  opacity: 1;
+  opacity: 10;
 }
 
 .header-container {
@@ -46,14 +46,22 @@
   min-height: 56px;
 }
 
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.95); /* Fondo negro casi opaco */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+  transform: translateY(16px);
+  border-radius: 0 0 18px 18px;
+}
+
 .logo {
-  flex: 1;
+  flex: 10;
   display: flex;
   align-items: center;
 }
 
 .logo-img {
-  height: 48px;
+  height: 70px;
   width: auto;
   margin-right: 1.2rem;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
@@ -198,6 +206,8 @@
   color: #003366;
   box-shadow: 0 2px 12px rgba(0,180,216,0.15);
 }
+
+
 
 /* Efecto de brillo al hover */
 @keyframes shimmer {
@@ -397,7 +407,7 @@
   background: rgba(0, 32, 76, 0.92);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px 0 rgba(0, 180, 216, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
-  transform: translateY(8px) scale(1.01);
+  transform: translateY(16px) scale(1.01);
   border-radius: 0 0 18px 18px;
 }
 

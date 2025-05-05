@@ -1,0 +1,239 @@
+.contacto-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+  padding: 0;
+}
+.contacto-hero {
+  background: linear-gradient(120deg, #003366 60%, #00b4d8 100%);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  border-radius: 0 0 48px 48px;
+  box-shadow: 0 8px 32px 0 rgba(0,52,102,0.10);
+  position: relative;
+  overflow: hidden;
+}
+.contacto-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contacto-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  animation: fadeInDown 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contacto-container {
+  max-width: 1200px;
+  margin: -3rem auto 0;
+  padding: 0 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: stretch;
+}
+.contacto-form {
+  background: rgba(255,255,255,0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 52, 102, 0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  animation: fadeInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.input-group {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1.1rem 1rem 0.7rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #00b4d8;
+  background: #f8f9fa;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+  outline: none;
+  resize: none;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+  border: 2px solid #ffb703;
+  box-shadow: 0 0 12px #00b4d833;
+}
+.input-group label {
+  position: absolute;
+  top: 0.2rem;
+  left: 1rem;
+  font-size: 0.95rem;
+  color: #003366;
+  pointer-events: none;
+  transition: all 0.3s;
+  opacity: 0.7;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -1.1rem;
+  left: 0.5rem;
+  font-size: 0.85rem;
+  color: #00b4d8;
+  opacity: 1;
+}
+.btn-enviar {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #00b4d8 0%, #ffb703 100%);
+  color: #003366;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-enviar:hover {
+  background: linear-gradient(90deg, #ffb703 0%, #00b4d8 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(0,180,216,0.18);
+  transform: scale(1.04) translateY(-2px);
+}
+.btn-enviar i {
+  animation: planeFly 2s infinite linear;
+}
+@keyframes planeFly {
+  0% { transform: translateX(0) rotate(0); }
+  10% { transform: translateX(6px) rotate(-10deg);}
+  20% { transform: translateX(12px) rotate(10deg);}
+  30% { transform: translateX(18px) rotate(-10deg);}
+  40% { transform: translateX(24px) rotate(0);}
+  100% { transform: translateX(0) rotate(0);}
+}
+.mensaje-exito {
+  position: absolute;
+  bottom: -2.2rem;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #00b4d8 0%, #ffb703 100%);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+  padding: 0.7rem 0;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.10);
+  animation: fadeInUp 0.7s;
+}
+.contacto-mapa {
+  position: relative;
+  min-height: 350px;
+  border-radius: 18px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mapa-efecto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 52, 102, 0.10);
+  background: #003366;
+  z-index: 1;
+}
+.mapa-efecto iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: none;
+  display: block;
+  filter: grayscale(0.2) contrast(1.1) brightness(0.98) blur(0.5px);
+  transition: filter 0.4s;
+}
+.mapa-efecto:hover iframe {
+  filter: grayscale(0) contrast(1.2) brightness(1.05) blur(0);
+}
+.mapa-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(0, 52, 102, 0.85);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,180,216,0.10);
+  pointer-events: none;
+  z-index: 2;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mapa-overlay i {
+  color: #ffb703;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.mapa-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow: 0 0 32px 8px #00b4d8, 0 0 0 0 #ffb703;
+  opacity: 0.18;
+  animation: borderGlow 2.5s infinite alternate;
+  z-index: 1;
+}
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 32px 8px #00b4d8, 0 0 0 0 #ffb703;
+    opacity: 0.18;
+  }
+  100% {
+    box-shadow: 0 0 40px 16px #ffb703, 0 0 0 0 #00b4d8;
+    opacity: 0.28;
+  }
+}
+/* Animaciones */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@media (max-width: 900px) {
+  .contacto-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem 3rem;
+  }
+  .contacto-mapa, .mapa-efecto {
+    min-height: 220px;
+  }
+  .contacto-hero {
+    padding: 3rem 1rem 1.5rem;
+  }
+}
