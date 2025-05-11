@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingDoctorButton from './components/FloatingDoctorButton';
+import Inicio from './pages/Inicio';
 import Diagnostico from './pages/Diagnostico';
 import Testimonios from './pages/Testimonios';
 import Nosotros from './pages/Nosotros';
@@ -27,14 +28,9 @@ function App() {
     <div className="App">
       <Header className={scrolled ? 'scrolled' : ''} />
       <main>
-        <section id="inicio" className="hero-section">
-          <h1>Bienvenido a DIMM</h1>
-          <p>Tu solución en análisis clínicos</p>
-          <h1>Bienvenido a DIMM</h1>
-          <p>Tu solución en análisis clínicos</p>
+        <section id="inicio">
+          <Inicio />
         </section>
-        
-        {/* Aquí irían las otras secciones como Servicios */}
         
         <section id="diagnostico">
           <Diagnostico />
@@ -51,8 +47,6 @@ function App() {
         <section id="contacto">
           <Contacto />
         </section>
-
-        {/* Aquí iría la sección de Contacto */}
       </main>
       <Footer />
       <FloatingDoctorButton />
